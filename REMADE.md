@@ -10,24 +10,30 @@ Bootstrap ediTable
 > 我在实际使用过程中发现使用data属性和使用js绑定事件属性代码少了三分之一,而且易读性和易扩展性都非常好，官方文档虽然建议data属性绑定但是好多例子是用的js事件绑定,现在把一些官方基本没有出现的绑定属性分享一下
 
 ```
-    <table id="table"
-           data-id-field="id"
+        <table id="table"
+           data-toolbar="#toolbar"
            data-toggle="table"
            data-pagination="true"
            data-search="true"
-           data-height="543"
            data-side-pagination="server"
            data-editable-save="onEditableSave"
            data-editable-success="success"
-           data-editable-validate="validate"
-           data-editable-url="/aapi/phone_book/updateOrderInfo"
-           data-url="/aapi/phone_book/getList">
+           data-editable-url="/aapi/employee/updateOrderInfo"
+           data-url="/aapi/employee/getList">
         <thead>
         <tr>
-            <th data-field="id" data-sortable="true" data-width="10%">id</th>
-            <th data-field="name" data-editable="true" data-width="30%" data-editable-title="请输入name">name</th>
-            <th data-field="title" data-editable="true" data-width="40%" data-editable-title="请输入title">title</th>
-            <th data-field="id" data-formatter="operateFormatter" data-width="10%">操作</th>
+            <th data-field="id" data-sortable="true">id</th>
+            <th data-field="jobnumber" data-switchable="true">员工工号</th>
+            <th data-field="phone" data-editable="true" data-editable-title="请输入手机号码">手机号码</th>
+            <th data-field="realname">真实姓名</th>
+            <th data-field="title">显示职称</th>
+            <th data-field="employee_type" data-editable="true" data-editable-type="select" data-editable-source="/aapi/employee/getListType" data-save="onEditableSave">员工类型 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th data-field="total_complete_order">完成总订单数</th>
+            <th data-field="total_score">总评分</th>
+            <th data-field="is_disable" data-formatter="disableFormatter">是否禁用</th>
+            <th data-field="avatar" data-formatter="avatarFormatter">用户头像</th>
+            <th data-field="is_rest" data-formatter="restFormatter">是否请假</th>
+            <th data-field="id">操作</th>
         </tr>
         </thead>
     </table>
